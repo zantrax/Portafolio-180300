@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Selecciona tu mes de nacimiento de la siguiente lista.</p>
+
+<select id="mes" onchange="diasFun()">
+  <option value="0">ENERO</option>
+  <option value="1">FEBRERO</option>
+  <option value="2">MARZO</option>
+  <option value="3">ABRIL</option>
+  <option value="4">MAYO</option>
+  <option value="5">JUNIO</option>
+  <option value="6">JULIO</option>
+  <option value="7">AGOSTO</option>
+  <option value="8">SEPTIEMBRE</option>
+  <option value="9">OCTUBRE</option>
+  <option value="10">NOVIEMBRE</option>
+  <option value="11">DICIEMBRE</option>
+</select>
+
+<p>Selecciona el dia de tu nacimiento.</p>
+
+<p id="demo"></p>
+<img id="image" src="dia/signos.jpg" alt="Signo Zodiacal">
+
+<script>
+function diasFun() {
+	var dias=[31,29,31,30,31,30,31,31,30,31,30,31];
+  var num;
+  var x = document.getElementById("mes").value;
+  var opDias;
+  opDias="<select id='dias' onchange='buscaSigno()'>";
+  for(num=1;num<=dias[x];num++){
+    opDias+="<option value="+num+">"+num+"</option>";
+  }
+  opDias+="</select>";
+  document.getElementById("demo").innerHTML=opDias;
+  //document.getElementById("image").src="days/"+dias[x];
+}
+function buscaSigno() {
+    var signos=["aries.jpg","libra.jpg","tauro.jpg","escorpion.jpg","geminis.jpg","sagitario.jpg","cancer.jpg","capricornio.jpg","leo.jpg","aquario.jpg","virgo.jpg","pisces.jpg"];
+    var mes = document.getElementById("mes").value;
+    var dia = document.getElementById("dias").value;
+    if((dia>=21&&mes==2)||(dia<=20&&mes==3))
+    {
+      alert('Aries');
+      document.getElementById("image").src="signoszod/aries.jpg";
+    }
+    if((dia>=24&&mes==8)||(dia<=23&&mes==9))
+    {
+      alert('Libra');
+      document.getElementById("image").src="signoszod/libra.jpg";
+    }
+    if((dia>=21&&mes==3)||(dia<=21&&mes==4))
+    {
+      alert('Tauro');
+      document.getElementById("image").src="signoszod/tauro.jpg";
+    }
+    if((dia>=24&&mes==9)||(dia<=22&&mes==10))
+    {
+      alert('Escorpio');
+      document.getElementById("image").src="signoszod/escorpion.jpg";
+    }
+    if((dia>=22&&mes==4)||(dia<=21&&mes==5))
+    {
+      alert('G\u00E9minis');
+      document.getElementById("image").src="signoszod/geminis.jpg";
+    }
+    if((dia>=23&&mes==10)||(dia<=21&&mes==11))
+    {
+       alert('Sagitario');
+       document.getElementById("image").src="signoszod/sagitario.jpg";
+    }
+    if((dia>=21&&mes==5)||(dia<=23&&mes==6))
+    {
+      alert('C\u00E1ncer');
+      document.getElementById("image").src="signoszod/cancer.jpg";
+    }
+    if((dia>=22&&mes==11)||(dia<=20&&mes==0))
+    {
+      alert('Capricornio');
+      document.getElementById("image").src="signoszod/capricornio.jpg";
+    }
+    if((dia>=24&&mes==6)||(dia<=23&&mes==7))
+    {
+      alert('Leo');
+      document.getElementById("image").src="signoszod/leo.jpg";
+    }
+    if((dia>=21&&mes==0)||(dia<=19&&mes==1))
+    {
+      alert('Acuario');
+      document.getElementById("image").src="signoszod/aquario.jpg";
+    }
+    if((dia>=24&&mes==7)||(dia<=23&&mes==8))
+    {
+      alert('Virgo');
+      document.getElementById("image").src="signoszod/virgo.jpg";
+    }
+    if((dia>=20&&mes==1)||(dia<=20&&mes==2))
+    {
+      alert('Piscis');
+      document.getElementById("image").src="signoszod/piscis.jpg";
+    }
+}
+</script>
+
+</body>
+</html>
+

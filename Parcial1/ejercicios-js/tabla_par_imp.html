@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Numeros Primos y Pares</title>
+        
+		<style>
+        	.primo{ background-color:green;color:black;}
+			.par{ background-color:blue;color:white;}
+        </style>
+    </head>
+    <body>
+    <center>
+    <p id="demo" onclick="myFunction()">Click aqui para mostrar tabla.</p>
+
+<script>
+function myFunction() {
+	var num=1,i=0,j=0,k=0,div=0;
+	var texto="<table> ";
+	
+	for(i=0;i<10;i++){ //rens
+		texto+="<tr> ";
+
+		for(j=0;j<10;j++){
+			
+			for(k=1,div=0;k<=num;k++){ //Primo
+				
+				if(num%k==0)div++;
+			}
+			
+			if(div<=2)texto+="<td class='primo'>"+num+ "</td>";
+			else 
+				if(num%2==0)texto+="<td class='par'>"+num+ "</td>";
+					else texto+="<td> "+num+ "</td>";
+			num++;
+		} //Cols
+		texto+="</tr>";
+	}
+	texto+="</table>";
+	alert(texto);
+  document.getElementById("demo").innerHTML = texto;
+}
+</script>
+</center>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Documento sin título</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+function calculaRFC() 
+	{
+	function esVocal(letra) {
+		if (letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O'
+				|| letra == 'U' || letra == 'a' || letra == 'e' || letra == 'i'
+				|| letra == 'o' || letra == 'u')
+			return true;
+		else
+			return false;
+	}
+	nombre = $("#NOMBRE_PERSONA").val().toUpperCase();
+	apellidoPaterno = $("#APELLIDO_PATERNO").val().toUpperCase();
+	apellidoMaterno = $("#APELLIDO_MATERNO").val().toUpperCase();
+	fecha = $("#F_NACIMIENTO").val();
+	var rfc = "";
+	rfc += apellidoPaterno.substr(0, 1);
+	var l = apellidoPaterno.length;
+	var c;
+	for (i = 0; i < l; i++) {
+		c = apellidoPaterno.charAt(i);
+		if (esVocal(c)) {
+			rfc += c;
+			break;
+		}
+	}
+	rfc += apellidoMaterno.substr(0, 1);
+	rfc += nombre.substr(0, 1);
+	rfc += fecha.substr(8, 10);
+	rfc += fecha.substr(3, 5).substr(0, 2);
+	rfc += fecha.substr(0, 2);
+	// rfc += "-" + homclave;
+	$("#RFC").val(rfc);
+}
+</script>
+<body>
+<center>
+<legend>Informaci&oacute;n General</legend>
+	<div>
+	
+		Nombre:<br>
+			<input id ="NOMBRE_PERSONA" type="text" size = "20" maxlength="30" class="uppercase" onchange="calculaRFC();"/>	<br>
+		Apellido Paterno:<br>
+        	<input  id ="APELLIDO_PATERNO" type="text"  size="20" maxlength="30" class="uppercase" onchange="calculaRFC();"/><br>
+		Apellido Materno:<br>
+			<input class="uppercase" id ="APELLIDO_MATERNO" name="APELLIDO_MATERNO" type="text" size="20" maxlength="30" onchange="calculaRFC();"/>	<br>	
+		Fecha Nacimiento:<br>
+		<input  id ="F_NACIMIENTO" name="F_NACIMIENTO" class="campofechaNac" type="text" onchange="calculaRFC();"/>	<br>
+				Sexo:<br>
+			    <div>
+				<select id="mySelect" onchange="myFunction()"><p>
+  				<option value=0>Masculino</option>
+  				<option value=1>Femenino</option>
+ 				<option value=2>Otro</option>
+  				<option value=3>Ninguno</option></p>
+		</select><br>
+
+		RFC:<br>
+			<input class="uppercase" id="RFC"  name="RFC" type="text" />
+  </div>
+</fieldset>
+</center>
+</body>
+</html>

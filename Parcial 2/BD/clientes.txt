@@ -1,0 +1,6 @@
+juanita1	fgty001109iux	correo1@gmail.com
+luis1	erta001007iiy	correo2@gmail.com
+juanita2	fgty001109iuy	correo6@gmail.com
+luis2	erta001007iix	correo5@gmail.com
+juanita3	fgty001109iuz	correo3@gmail.com
+luis3	erta001007iiz	correo4@gmail.com

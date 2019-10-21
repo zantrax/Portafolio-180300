@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Documento sin título</title>
+</head>
+
+
+<body>
+<p>Select a new car from the list.</p>
+
+<select id="mySelect" onchange="myFunction()">
+  <option value=0>Lunes</option>
+  <option value=1>Martes</option>
+  <option value=2>Miercoles</option>
+  <option value=3>Jueves</option>
+  <option value=4>Viernes</option>
+  <option value=5>Sabado</option>
+  <option value=6>Domingo</option>
+</select>
+
+<p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+
+<p id="demo"></p>
+
+<img id="myImg" src="imagenessemana/lunes.jpg" alt="Dias de la Semana" width="300" height="300">
+
+
+
+<script>
+function myFunction() {
+  var x =document.getElementById("mySelect").value;
+  var dias =["lunes.jpg", "martes.jpg", "miercoles.jpg", "jueves.jpg", "viernes.jpg", "sabado.jpg", "domingo.jpg"];
+
+  document.getElementById("demo").innerHTML = "You selected: " + dias[x];
+  
+  document.getElementById("myImg").src="imagenessemana/" + dias[x];
+  
+  
+}
+</script>
+
+</body>
+</html>
